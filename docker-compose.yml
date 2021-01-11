@@ -1,0 +1,18 @@
+version: '3'
+services:
+  reader:
+    image: openjdk:8-jre
+    environment:
+      - OCIRHOST=192.168.1.100
+      - OCIRDESTINATION=http://processor:8080/api/report/12345678  
+    volumes:
+      - ./OcirListener/target:/opt/ocirlistener
+    working_dir: /opt/ocirlistener
+    command: java -jar ocirListener-jar-with-dependencies.jar
+  processor:
+    image: openjdk:8-jre
+    volumes:
+      - ../demoservice/ThirdPartyX/target/:/opt/demo
+    working_dir: /opt/demo
+    command: java -jar ThirdPartyX-0.0.1-SNAPSHOT.jar
+

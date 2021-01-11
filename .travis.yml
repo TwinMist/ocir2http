@@ -1,0 +1,12 @@
+language: java
+sudo: false
+script: mvn clean verify
+deploy:
+  provider: releases
+  api_key:
+    secure: bl5lEJxN6zYWIvEMxJ64Pf+0lGfdTJ1K6/4iBWSqn6a+8kEZb3V5Il7+EjI3cg03GfL+6LSy7Qa86d2gO3oD0R1E98/a6sjnYYzH7PYlPh2PpMwWTiUDlT2suePCPXrajrn87nUlEGp7TWF09ZOietzgFSM2iuEKVZDOhQQf6p8FZpmyCPfzzZukhdROFyxKNmK6f81oPsY05G1gpJzfM6HhhsVrRUXHo14+GKhsXccMyxS2zUzD+FEpgR6aCltDxhJySWYIwdVPTRQOdcCevG4wyI4Q6MBxw94i73hM3s3gd5Z7bnsl/VQfh2vB8nIR+XqU4FZK5FKIRWoLjfGF/pw+UFhzJrjEL5mjOjpLkUemxKJaWCP1hFf/TUCqPRoM7hLgoVeM2mRk+hksZrzuuavVRyEyrzXycUhJrrmy1BaPT43xkF07S5uqinRYHR8weClNYeuGCxfoyaQALONV40ZWWRJcYDkFiKb2qVgkclHEYOyHzMSJqoCR2I62JMCwHqOGUtbaRcocrrdg74orURJMb3j4SNJh9P7ls7yXGIGY/j3CMVPCWB4nb/3cozxMz5ZZwhH1YAW93kcbbOai6LLu9ljD+d1B+rJ3K3xPU88uxr21fRfTyHyL9TlZS6d4EidSF9HuFI48reCh1GpV4V44j574zCzsS5UhQb2PcIM=
+  file: target/ocir2http.jar
+  skip_cleanup: true
+  on:
+    repo: timezone4/ocir2http
+    tags: true
